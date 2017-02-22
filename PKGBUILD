@@ -1,6 +1,6 @@
 # Maintainer: Hexcles Ma <bob1211@gmail.com>
 pkgname=rhythmbox-plugin-fileorganizer-git
-pkgver=3.r16.ce123eb
+pkgver=3.r45.b6be340
 pkgrel=1
 pkgdesc="Music library organizer (move and rename files according to Rhythmbox database)"
 arch=('any')
@@ -30,14 +30,14 @@ pkgver() {
 
 package() {
 	cd "$srcdir/${_gitroot}"
-# make INSTALLPATH="$pkgdir/usr/lib/rhythmbox/plugins/fileorganizer/" install-req
+	# make INSTALLPATH="$pkgdir/usr/lib/rhythmbox/plugins/fileorganizer/" install-req
 	install -dm 755 "${pkgdir}"/usr/{lib,share}/rhythmbox/plugins/fileorganizer/
 	install -m 644 *.py "${pkgdir}/usr/lib/rhythmbox/plugins/fileorganizer/"
 	python -O -m compileall "${pkgdir}/usr/lib/rhythmbox/plugins/fileorganizer/"
 	install -m 644 fileorganizer.plugin "${pkgdir}/usr/lib/rhythmbox/plugins/fileorganizer/"
 
 	install -m 644 *.ui "${pkgdir}/usr/share/rhythmbox/plugins/fileorganizer/"
-	cp -r template "${pkgdir}/usr/share/rhythmbox/plugins/fileorganizer/"
+	# cp -r template "${pkgdir}/usr/share/rhythmbox/plugins/fileorganizer/"
 
 	install -dm 755 "${pkgdir}/usr/share/licenses/${pkgname}/"
 	install -m 644 LICENSE AUTHORS "${pkgdir}/usr/share/licenses/${pkgname}/"
