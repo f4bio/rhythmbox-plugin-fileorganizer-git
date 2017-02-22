@@ -1,6 +1,6 @@
 pkg/
 src/
-fb-fileorganizer/
+rb-fileorganizer/
 *.xz
 *.sign
 *.src.tar.gz
